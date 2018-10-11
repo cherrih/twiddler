@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=K2D:100,400,400i,700" rel="stylesheet">
+    <script src='jquery.js'></script>
+    <script src='data_generator.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=K2D:100,400,400i,700' rel='stylesheet'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='style.css'>
   </head>
   <body>
     <header>
@@ -15,12 +15,12 @@
 
       </header>
   
-  <div class = "container about"></div>
-  <div class = "container feed">
-    <div class = "button">
-    <a href = "#" class = "show"> more nonsense</a>
+  <div class = 'container about'></div>
+  <div class = 'container feed'>
+    <div class = 'button'>
+    <a href = '#' class = 'show'> <img src = '' id = 'showImage'> <span id = 'showText'>more nonsense</span></a>
     </div>
-    <div class="stream">
+    <div class='stream'>
 
     </div>
 
@@ -53,48 +53,72 @@
         //var $body = $('body');
         //$body.html('');
         
-        
-
-
-        //first 11 tweets
+        //show first 11 tweets
         var index = streams.home.length - 1;
         while(index >= 0){
-          //for every tweet make a div
           var tweet = streams.home[index];
           var tweetDiv = $('<div class = "userTweets" id ="' + tweet.user + '"></div>');
-          var tweetUser = $('<span class=user></span>');
-          var tweetMessage = $('<span class=message></span>');
-          var tweetTime = $('<span class=time></span>');
+          var tweetUser = $('<span class="user"></span>');
+          var tweetMessage = $('<span class="message"></span>');
+          var tweetTime = $('<span class="time"></span>');
 
           tweetDiv.appendTo('.stream');
-          tweetUser.text('@' + tweet.user + ': ').css("font-weight","Bold").appendTo(tweetDiv);
+          tweetUser.text('@' + tweet.user + ': ').css('font-weight','Bold').appendTo(tweetDiv);
           tweetMessage.text(tweet.message).appendTo(tweetDiv);
-          tweetTime.text(' at ' + timeStamp(tweet.created_at)).css("font-weight","200").appendTo(tweetDiv);
+          tweetTime.text(' at ' + timeStamp(tweet.created_at)).css('font-weight','200').appendTo(tweetDiv);
           
           index -= 1;
         }
+
+        // show new tweets on button click
         var newIndex = 11;
-        $(".show").click(function(){
+        $('.show').click(function(){
           var tweet = streams.home[newIndex];
           var tweetDiv = $('<div class = "userTweets" id ="' + tweet.user + '"></div>');
-          var tweetUser = $('<span class=user></span>');
-          var tweetMessage = $('<span class=message></span>');
-          var tweetTime = $('<span class=time></span>');
+          var tweetUser = $('<span class="user"></span>');
+          var tweetMessage = $('<span class="message"></span>');
+          var tweetTime = $('<span class="time"></span>');
 
           $('.stream').prepend(tweetDiv);
-
-          tweetUser.text('@' + tweet.user + ': ').css("font-weight","Bold").appendTo(tweetDiv);
+          tweetUser.text('@' + tweet.user + ': ').css('font-weight','Bold').appendTo(tweetDiv);
           tweetMessage.text(tweet.message).appendTo(tweetDiv);
-          tweetTime.text(' at ' + timeStamp(tweet.created_at)).css("font-weight","200").appendTo(tweetDiv);
-          
-
+          tweetTime.text(' at ' + timeStamp(tweet.created_at)).css('font-weight','200').appendTo(tweetDiv);
           newIndex +=1;
         });
 
-      $(".userTweets").on('click', function(){
-          var user = $(this).attr("id");
-          $(".userTweets").not('div:contains("' + user + '")').hide(400);
+        // hover mouse style
+        //$('.')
+
+        
+        // user timeline
+        $('.stream').on('click', '.userTweets' , function(){
+          // event.preventDefault();
+
+          var userName = $(this).attr('id');
+          
+          
+          $('.userTweets').not('div:contains("' + userName + '")').hide(400);
+          $('div:contains("' + userName + '")').show(400);
         })
+
+
+
+
+
+      //show image on hover on button
+        $('.button').hover(function(){
+          $('.button').css('background-color', '#fff');
+          $('#showText').hide();
+          $('#showImage').attr('src', 'cheshirecat.png');
+        },
+        function(){
+          $('.button').css('background-color', '#000');
+          $('#showText').show();
+          $('#showImage').attr('src', '');
+        }
+        )
+
+
         
       });
       
