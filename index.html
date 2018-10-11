@@ -3,7 +3,9 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=K2D:100,400,400i,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -28,11 +30,6 @@
 
 
     <script>
-
-      $(document).ready(function(){
-        //var $body = $('body');
-        //$body.html('');
-        
         var addZero = function(mins){
             if (mins <10){
               mins = '0' + mins;
@@ -53,6 +50,11 @@
           }
           return h + ':' + addZero(m) + ' ' + amPM;
         }
+      $(document).ready(function(){
+        //var $body = $('body');
+        //$body.html('');
+        
+        
 
 
         //first 11 tweets
@@ -60,23 +62,27 @@
         while(index >= 0){
           //for every tweet make a div
           var tweet = streams.home[index];
-          var tweetDiv = $('<div></div>');
+          var tweetDiv = $('<div class = "userTweets" id ="' + tweet.user + '"></div>');
           tweetDiv.text('@' + tweet.user + ': ' + tweet.message + ' at ' + timeStamp(tweet.created_at));
           tweetDiv.appendTo('.stream');
           index -= 1;
         }
-        
         var newIndex = 11;
         $(".show").click(function(){
           var tweet = streams.home[newIndex];
-          var newTweet = $('<div></div>');
+          var newTweet = $('<div class = "userTweets" id = "' + tweet.user + '"></div>');
           newTweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + timeStamp(tweet.created_at));
           $('.stream').prepend(newTweet);
           newIndex +=1;
         });
 
-
+      $(".userTweets").on('click', function(){
+          var user = $(this).attr("id");
+          $(".userTweets").not('div:contains("' + user + '")').hide(400);
+        })
+        
       });
+      
 
     </script>
   </body>
