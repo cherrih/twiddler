@@ -27,11 +27,11 @@ var randomElement = function(array){
 };
 
 // random tweet generator
-var opening = ['just', '', '', '', '', 'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the president', 'that wizard', 'a ninja', 'a seedy old man'];
-var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'installed', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'computed'];
+var opening = ['just', 'immediately' , '', '', '', '', 'the Queen of Hearts' ,'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the Caterpillar', 'the Duchess', 'Alice', 'the White Rabbit', 'the March Hare', 'the Cheshire Cat'];
+var verbs = ['followed', 'created', 'designed', 'prophecized', 'built', 'invented', 'experienced', 'drank', 'found', 'enjoyed', 'examined', 'installed', 'explained', 'delegated', 'automated', 'formulated'];
 var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the big', 'a new form of'];
-var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'money', 'way of life', 'belief system', 'security system', 'bad decision', 'future', 'life', 'pony', 'mind'];
-var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', ''];
+var nouns = ['fall', 'tea party', 'secret', 'turtle', 'breakfast', 'raven', 'writing desk', 'riddle', 'puzzle', 'belief system', 'security system', 'bad decision', 'future', 'life', 'mind', 'dodo', 'duck', 'queen', 'knave', 'mouse', 'teacup', 'wine'];
+var tags = ['#eatme', '#curiouserandcuriouser', '#drinkme', '#followthewhiterabbit', 'for real', '#wereallmadhere', '#takesomemoretea', '#offwithherhead', '#yolo', '#downtherabbithole', '', '', '', ''];
 
 var randomMessage = function(){
   return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');

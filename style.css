@@ -6,6 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right bottom;
+    background-size: auto;
     font-size: 16px;
 }
 

@@ -3,9 +3,8 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=K2D:100,400,400i,700" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -63,16 +62,32 @@
           //for every tweet make a div
           var tweet = streams.home[index];
           var tweetDiv = $('<div class = "userTweets" id ="' + tweet.user + '"></div>');
-          tweetDiv.text('@' + tweet.user + ': ' + tweet.message + ' at ' + timeStamp(tweet.created_at));
+          var tweetUser = $('<span class=user></span>');
+          var tweetMessage = $('<span class=message></span>');
+          var tweetTime = $('<span class=time></span>');
+
           tweetDiv.appendTo('.stream');
+          tweetUser.text('@' + tweet.user + ': ').css("font-weight","Bold").appendTo(tweetDiv);
+          tweetMessage.text(tweet.message).appendTo(tweetDiv);
+          tweetTime.text(' at ' + timeStamp(tweet.created_at)).css("font-weight","200").appendTo(tweetDiv);
+          
           index -= 1;
         }
         var newIndex = 11;
         $(".show").click(function(){
           var tweet = streams.home[newIndex];
-          var newTweet = $('<div class = "userTweets" id = "' + tweet.user + '"></div>');
-          newTweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + timeStamp(tweet.created_at));
-          $('.stream').prepend(newTweet);
+          var tweetDiv = $('<div class = "userTweets" id ="' + tweet.user + '"></div>');
+          var tweetUser = $('<span class=user></span>');
+          var tweetMessage = $('<span class=message></span>');
+          var tweetTime = $('<span class=time></span>');
+
+          $('.stream').prepend(tweetDiv);
+
+          tweetUser.text('@' + tweet.user + ': ').css("font-weight","Bold").appendTo(tweetDiv);
+          tweetMessage.text(tweet.message).appendTo(tweetDiv);
+          tweetTime.text(' at ' + timeStamp(tweet.created_at)).css("font-weight","200").appendTo(tweetDiv);
+          
+
           newIndex +=1;
         });
 
