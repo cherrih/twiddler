@@ -15,7 +15,7 @@
 
       </header>
   
-  <div class = 'container about'></div>
+  
   <div class = 'container feed'>
     <div class = 'button'>
     <a href = '#' class = 'show'> <img src = '' id = 'showImage'> <span id = 'showText'>more nonsense</span></a>
@@ -25,6 +25,14 @@
     </div>
 
   </div>
+  <footer>
+    <div class='quotes cheshCat'><span class='quote'>"I'm not crazy. My reality is just different than yours" </span><span class='name'> - Cheshire Cat</span></div>
+    <div class='quotes tweedleDeez'><span class='quote'>"Contrariwise, if it was so, it might be; and if it were so, it would be; but as it isn't, it ain't. That's logic" </span><span class='name'> - Tweedle Dee</span></div>
+    <div class='quotes tweedleDumbledore'><span class='quote'>"Let's fight till six, and then have dinner" </span><span class='name'> - Tweedle Dum</span></div>
+    <div class='quotes madHatTrick'><span class='quote'>"You're entirely bonkers. But I'll tell you a secret. All the best people are" </span><span class='name'> - Mad Hatter</span></div>
+    <div class='quotes qu33nee'><span class='quote'>"Sometimes I've believed as many as six impossible things before breakfast" </span><span class='name'> - Queen</span></div>
+    <div class='homeButton'><p class='homeText'>back down the rabbit hole</p><img src = 'stopwatch.jpg' class = 'stopWatch'></div>
+  </footer>
 
 
 
@@ -92,16 +100,54 @@
         // user timeline
         $('.stream').on('click', '.userTweets' , function(){
           // event.preventDefault();
-
-          var userName = $(this).attr('id');
           
+          var userName = $(this).attr('id');
+          var displayQuote = '".' + userName + '"';
           
           $('.userTweets').not('div:contains("' + userName + '")').hide(400);
           $('div:contains("' + userName + '")').show(400);
+
+          $('.button').hide();
+
+          //show quotes
+          if (userName === 'tweedleDumbledore'){
+            $('.tweedleDumbledore').toggle();
+          }
+          if (userName === 'cheshCat'){
+            $('.cheshCat').toggle();
+          }
+          if (userName === 'tweedleDeez'){
+            $('.tweedleDeez').toggle();
+          }
+          if (userName === 'madHatTrick'){
+            $('.madHatTrick').toggle();
+          }
+          if (userName === 'qu33nee'){
+            $('.qu33nee').toggle();
+          }
+          //take me back button
+
+          $('.homeButton').fadeToggle(6000);
+
         })
 
+      //show all again
+      $('.homeButton').on('click', function(){
+        $('.button').fadeToggle(400);
+        $('.homeButton').toggle();
+        $('.userTweets').show(400);
+        $('.quotes').hide();
+      })
 
-
+        $('.homeButton').hover(function(){
+          $('.stopWatch').toggle();
+          $('.homeText').toggle();
+        },
+        
+        function(){
+          $('.stopWatch').toggle();
+          $('.homeText').toggle();
+        })
 
 
       //show image on hover on button
@@ -116,6 +162,8 @@
           $('#showImage').attr('src', '');
         }
         )
+        
+        
 
 
         

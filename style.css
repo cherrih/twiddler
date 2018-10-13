@@ -32,14 +32,15 @@ body {
     width: 150px;
     height: 60px;
     border-radius: 30px;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 150px;
 }
 
 .stream {
     margin-top: 20px;
     margin-left: 100px;
-    width: 700px;
+    width: 550px;
+    margin-bottom: 40px;
 }
 
 
@@ -51,8 +52,69 @@ header h1 {
     font-size: 38px;
 }
 
+.timeline {
+    color: #000;
+}
+
 
 .user:hover {
     cursor: pointer;
     color: #A9A9A9;
+}
+
+footer .quote {
+    font-family: 'Pacifico', Helvetica, sans-serif;
+    font-size: 14px;
+}
+footer .name {
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+footer {
+    margin-left: 100px;
+    margin-bottom: 20px;
+    width: 570px;
+}
+
+.cheshCat {
+    display: none;
+}
+.tweedleDeez {
+    display: none;
+}
+.tweedleDumbledore {
+    display: none;
+}
+.madHatTrick {
+    display: none;
+}
+.qu33nee {
+    display: none;
+}
+
+.homeButton{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    background-color: #000;
+    text-align: center;
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 150px;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px;
+    display: none;
+}
+
+.homeButton:hover {
+    cursor: pointer;
+    background-color:#fff;
+}
+
+.stopWatch{
+    display: none;
 }

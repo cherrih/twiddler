@@ -11,6 +11,7 @@ streams.users.cheshCat = [];
 streams.users.tweedleDeez = [];
 streams.users.tweedleDumbledore = [];
 streams.users.madHatTrick = [];
+streams.users.qu33nee = [];
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
@@ -27,11 +28,11 @@ var randomElement = function(array){
 };
 
 // random tweet generator
-var opening = ['just', 'immediately' , '', '', '', '', 'the Queen of Hearts' ,'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the Caterpillar', 'the Duchess', 'Alice', 'the White Rabbit', 'the March Hare', 'the Cheshire Cat'];
-var verbs = ['followed', 'created', 'designed', 'prophecized', 'built', 'invented', 'experienced', 'drank', 'found', 'enjoyed', 'examined', 'installed', 'explained', 'delegated', 'automated', 'formulated'];
+var opening = ['just', 'immediately' , '', '', '', '', 'the Queen of Hearts' ,'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the Caterpillar', 'the Duchess', 'Alice', 'the White Rabbit', 'the March Hare', 'the Mock Turtle', 'drastically'];
+var verbs = ['followed', 'created', 'designed', 'prophecized', 'built', 'invented', 'experienced', 'drank', 'found', 'enjoyed', 'examined', 'installed', 'explained', 'delegated', 'automated', 'formulated', 'believed', 'explored', 'encountered'];
 var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the big', 'a new form of'];
-var nouns = ['fall', 'tea party', 'secret', 'turtle', 'breakfast', 'raven', 'writing desk', 'riddle', 'puzzle', 'belief system', 'security system', 'bad decision', 'future', 'life', 'mind', 'dodo', 'duck', 'queen', 'knave', 'mouse', 'teacup', 'wine'];
-var tags = ['#eatme', '#curiouserandcuriouser', '#drinkme', '#followthewhiterabbit', 'for real', '#wereallmadhere', '#takesomemoretea', '#offwithherhead', '#yolo', '#downtherabbithole', '', '', '', ''];
+var nouns = ['fall', 'tea party', 'secret', 'turtle', 'breakfast', 'raven', 'writing desk', 'riddle', 'puzzle', 'belief system', 'security system', 'bad decision', 'future', 'life', 'mind', 'dodo', 'duck', 'queen', 'knave', 'mouse', 'teacup', 'wine', 'imagination'];
+var tags = ['#eatme', '#imlate' ,'#curiouserandcuriouser', '#drinkme', '#followthewhiterabbit', 'for real', '#wereallmadhere', '#takesomemoretea', '#offwithherhead', '#downtherabbithole', '', '', '', '', '#itsalwaysteatime', '#bonkers', '#that\'s logic'];
 
 var randomMessage = function(){
   return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');
